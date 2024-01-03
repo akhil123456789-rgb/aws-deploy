@@ -4,12 +4,12 @@ import numpy as np
 #create a Flask object
 app=Flask(__name__)
 '''
-@app.route("/")
+@application.route("/")
 def hello():
     """test function"""
     return """Welcome to the Flask"""
 
-@app.route('/Akhil',methods=['GET'])
+@application.route('/Akhil',methods=['GET'])
 def check():
     """new function"""
     return"Hello,there"
@@ -24,12 +24,12 @@ with open('House_price.pkl','rb') as f:
 
 
 
-@app.route('/',methods=['GET'])
+@application.route('/',methods=['GET'])
 def home():
     return render_template('index.html')
 
 
-@app.route('/predict',methods=['POST'])
+@application.route('/predict',methods=['POST'])
 def predict():
     Rooms=int(request.form['bedrooms'])
     Bathrooms=int(request.form['bathrooms'])
@@ -46,5 +46,5 @@ def predict():
     return render_template('index.html',prediction=prediction)
 
 
-
-app.run()
+if  __name__ =="__main__":
+    application.run()
